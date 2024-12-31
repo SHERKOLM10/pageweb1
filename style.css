@@ -1,0 +1,121 @@
+/* Container principal */
+.accordion {
+    display: flex;
+    width: 90%;
+    margin: 50px auto;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
+    z-index: 1; /* Contenu au-dessus du fond */
+}
+
+/* Les panels */
+.panel {
+    flex: 1;
+    position: relative;
+    transition: flex 0.3s ease-in-out;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Images dans les panels */
+.panel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Agrandissement lors du survol */
+.panel:hover {
+    flex: 3;
+}
+
+.panel:hover img {
+    transform: scale(1.1);
+}
+
+/* Titre en bas de chaque image */
+.panel .title {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    font-size: 18px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Description masquée par défaut */
+.panel .description {
+    position: absolute;
+    bottom: 50px;
+    left: 10px;
+    right: 10px;
+    padding: 10px;
+    color: white;
+    font-size: 16px;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    border-radius: 5px;
+    pointer-events: none; /* Empêche toute interaction */
+}
+
+/* Affichage de la description au survol */
+.panel:hover .description {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto; /* Permet l'interaction */
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Ajoute une légère teinte sombre */
+    backdrop-filter: blur(10px); /* Effet flou */
+    z-index: -1; /* Place l'effet derrière le contenu */
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('https://i.pinimg.com/736x/04/31/56/043156597815947bde4aea7bc01062dc.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: linear-gradient(to right, #ff9800, #ff5722);
+    color: white;
+    font-size: 0.5rem;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.page-title h1 {
+    margin: 0;
+    padding: 10px;
+}
+
